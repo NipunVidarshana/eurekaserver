@@ -3,40 +3,13 @@ spring:
     web-environment: true
     banner-mode: console
     debug: true
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    show-sql: true
-    hibernate:
-      ddl-auto: validate
-      connection:
-        CharSet: UTF-8
-        characterEncoding: UTF-8
-        useUnicode: true
+
   application:
     name: AirFeildAndRunAWay
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.231.50:3306/comptroller_general_system_structure_airfield_runaway?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
-    username: nipun_dev
-    password: root
 
-  http:
-    multipart:
-      max-file-size: 15MB
-      max-request-size: 25MB
-    sessionManagement:
-      enableSessionUrlRewriting: false
-  web:
-    resources:
-      add-mappings: true
 server:
   port: 8082
   context-path: /
-
-framework:
-  app:
-    jwtSecret: MotE24sAQKrFVBH2070BKHsGFw20h8kFGHhterH18566234HJ32dwe42Gv14MotE24R5QKvFVB8gotE24sAQKrFVBH2070BKHsGFw20h8kFGHhthrH18566234HJ32dwe42Gv14MotE24R5QKvFVB8
-    jwtExpirationMs: 86400000
 
 eureka:
   client:
