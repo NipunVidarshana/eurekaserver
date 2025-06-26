@@ -5,10 +5,10 @@ spring:
     debug: true
 
   application:
-    name: AirFeildAndRunAWay
+    name: CGRSL
 
 server:
-  port: 8082
+  port: 8087
   context-path: /
 
 eureka:
@@ -18,6 +18,6 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
   instance:
-    instance-id: cgo-structures:AirFeildAndRunAWay:${server.port}
+    instance-id: cgo-structures:CGRSL:${server.port}
     prefer-ip-address: true
 
