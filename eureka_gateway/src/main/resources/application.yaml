@@ -23,52 +23,52 @@ management:
 
 spring:
   application:
-    name: api-gateway # Name of your gateway service in Eureka
+    name: api-gateway 
   cloud:
     gateway:
       discovery:
         locator:
-          enabled: true # Enable discovery locator for automatic routing based on service names
-          lower-case-service-id: true # Optional: Convert service IDs to lowercase
+          enabled: true 
+          lower-case-service-id: true
       routes:
         - id: basicairfeild-cgo-service
-          uri: lb://CGO-BASICAIRFIELD # lb:// for load balancing through Eureka service ID
+          uri: lb://CGO-BASICAIRFIELD 
           predicates:
-            - Path=/cgobasicairfield/** # All requests to /airfield/** will be routed to AIRFEILDANDRUNAWAY
+            - Path=/cgobasicairfield/** 
           filters:
-            - StripPrefix=1 # Removes the /airfield prefix before forwarding to the service
+            - StripPrefix=1
 
         - id: sincode-cgo-service
-          uri: lb://CGO-SINCODE # lb:// for load balancing through Eureka service ID
+          uri: lb://CGO-SINCODE 
           predicates:
-            - Path=/cgosincode/** # All requests to /cgrsl/** will be routed to CGRSL
+            - Path=/cgosincode/** 
           filters:
-            - StripPrefix=1 # Removes the /cgrsl prefix before forwarding to the service
+            - StripPrefix=1 
 #            -
         - id: constructioncomplete-cgo-service
-          uri: lb://CGO-CONSTRUCTIONCOMPLETE # lb:// for load balancing through Eureka service ID
+          uri: lb://CGO-CONSTRUCTIONCOMPLETE 
           predicates:
-            - Path=/cgoconstructioncomplete/** # All requests to /cgrsl/** will be routed to CGRSL
+            - Path=/cgoconstructioncomplete/** 
           filters:
-            - StripPrefix=1 # Removes the /cgrsl prefix before forwarding to the service
+            - StripPrefix=1 
 #
         - id: constructionnotcomplete-cgo-service
-          uri: lb://CGO-CONSTRUCTIONNOTCOMPLETE # lb:// for load balancing through Eureka service ID
+          uri: lb://CGO-CONSTRUCTIONNOTCOMPLETE 
           predicates:
-            - Path=/cgoconstructionnotcomplete/** # All requests to /cgrsl/** will be routed to CGRSL
+            - Path=/cgoconstructionnotcomplete/** 
           filters:
-            - StripPrefix=1 # Removes the /cgrsl prefix before forwarding to the service
+            - StripPrefix=1 
 #
         - id: areacalculation-cgo-service
-          uri: lb://CGO-AREACALCULATION # lb:// for load balancing through Eureka service ID
+          uri: lb://CGO-AREACALCULATION 
           predicates:
-            - Path=/cgoareacalculation/** # All requests to /cgrsl/** will be routed to CGRSL
+            - Path=/cgoareacalculation/** 
           filters:
-            - StripPrefix=1 # Removes the /cgrsl prefix before forwarding to the service
+            - StripPrefix=1 
 #
         - id: dashboard-cgo-service
-          uri: lb://CGO-ADMINDASHBOARD # lb:// for load balancing through Eureka service ID
+          uri: lb://CGO-ADMINDASHBOARD 
           predicates:
-            - Path=/cgoadmindashboard/** # All requests to /cgrsl/** will be routed to CGRSL
+            - Path=/cgoadmindashboard/** 
           filters:
-            - StripPrefix=1 # Removes the /cgrsl prefix before forwarding to the service
+            - StripPrefix=1 
