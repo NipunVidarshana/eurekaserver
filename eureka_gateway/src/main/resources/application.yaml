@@ -17,6 +17,8 @@ management:
     prometheus:
       enabled: true
   metrics:
+    tags:
+      application: gateway
     export:
       prometheus:
         enabled: true

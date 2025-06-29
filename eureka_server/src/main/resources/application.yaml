@@ -17,6 +17,8 @@ management:
     prometheus:
       enabled: true
   metrics:
+    tags:
+      application: eureka-server
     export:
       prometheus:
         enabled: true
