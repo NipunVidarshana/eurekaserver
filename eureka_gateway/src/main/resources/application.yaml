@@ -8,6 +8,19 @@ eureka:
     fetch-registry: true
     register-with-eureka: true # Register the gateway with Eureka
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus"
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
 spring:
   application:
     name: api-gateway # Name of your gateway service in Eureka
