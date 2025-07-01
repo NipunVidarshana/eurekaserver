@@ -24,26 +24,10 @@ management:
         enabled: true
 
 spring:
-  application:
-    name: api-gateway 
   cloud:
     gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders: "*"
-      discovery:
-        locator:
-          enabled: true 
-          lower-case-service-id: true
       routes:
+
         #Reserved for MOF Common Systems
         - id: mof-common-system-management
           uri: lb://MOF_SYSTEMMANAGEMENT
@@ -60,6 +44,8 @@ spring:
             - StripPrefix=1
 
 
+
+
         #Reserved for AEXPERT
         - id: aexpert-backend
           uri: lb://AUDITMANAGEMENTAEXPERT
@@ -67,6 +53,8 @@ spring:
             - Path=/audit-backend/**
           filters:
             - StripPrefix=1
+
+
 
 
         #Reserved for CGO System
@@ -112,43 +100,43 @@ spring:
 
         #Reserved for cgo other modules(Development)
         - id: basicairfeild-cgo-service
-          uri: lb://CGO-BASICAIRFIELD 
+          uri: lb://CGO-BASICAIRFIELD
           predicates:
-            - Path=/cgobasicairfield/** 
+            - Path=/cgobasicairfield/**
           filters:
             - StripPrefix=1
 
         - id: sincode-cgo-service
-          uri: lb://CGO-SINCODE 
+          uri: lb://CGO-SINCODE
           predicates:
-            - Path=/cgosincode/** 
+            - Path=/cgosincode/**
           filters:
-            - StripPrefix=1 
+            - StripPrefix=1
 
         - id: constructioncomplete-cgo-service
-          uri: lb://CGO-CONSTRUCTIONCOMPLETE 
+          uri: lb://CGO-CONSTRUCTIONCOMPLETE
           predicates:
-            - Path=/cgoconstructioncomplete/** 
+            - Path=/cgoconstructioncomplete/**
           filters:
-            - StripPrefix=1 
+            - StripPrefix=1
 
         - id: constructionnotcomplete-cgo-service
-          uri: lb://CGO-CONSTRUCTIONNOTCOMPLETE 
+          uri: lb://CGO-CONSTRUCTIONNOTCOMPLETE
           predicates:
-            - Path=/cgoconstructionnotcomplete/** 
+            - Path=/cgoconstructionnotcomplete/**
           filters:
-            - StripPrefix=1 
+            - StripPrefix=1
 
         - id: areacalculation-cgo-service
-          uri: lb://CGO-AREACALCULATION 
+          uri: lb://CGO-AREACALCULATION
           predicates:
-            - Path=/cgoareacalculation/** 
+            - Path=/cgoareacalculation/**
           filters:
-            - StripPrefix=1 
+            - StripPrefix=1
 
         - id: dashboard-cgo-service
-          uri: lb://CGO-ADMINDASHBOARD 
+          uri: lb://CGO-ADMINDASHBOARD
           predicates:
-            - Path=/cgoadmindashboard/** 
+            - Path=/cgoadmindashboard/**
           filters:
             - StripPrefix=1 
