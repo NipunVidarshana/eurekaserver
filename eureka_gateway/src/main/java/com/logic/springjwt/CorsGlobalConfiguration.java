@@ -13,11 +13,10 @@ public class CorsGlobalConfiguration {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        //config.addAllowedOrigin("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
-        //config.addAllowedOriginPattern("http://192.168.231.62"); // or use wildcard pattern
-        //config.addAllowedOriginPattern("http://192.168.231.50"); // or use wildcard pattern
+        config.addAllowedOriginPattern("http://192.168.231.62"); // or use wildcard pattern
+        config.addAllowedOriginPattern("http://192.168.231.50"); // or use wildcard pattern
         config.addAllowedOriginPattern("http://localhost"); // or use wildcard pattern
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

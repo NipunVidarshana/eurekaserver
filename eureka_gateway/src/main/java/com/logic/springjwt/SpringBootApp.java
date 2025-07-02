@@ -17,9 +17,9 @@ import org.springframework.web.context.request.RequestContextListener;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class BasicAirFieldDataApplication {
+public class SpringBootApp {
 
-    private static final Logger slsiLogger = LogManager.getLogger(BasicAirFieldDataApplication.class);
+    private static final Logger slsiLogger = LogManager.getLogger(SpringBootApp.class);
 
     @Autowired
     private MessageSource messageSource;
@@ -29,7 +29,7 @@ public class BasicAirFieldDataApplication {
         System.out.println("######################################################");
         System.out.println(" ");
         System.out.println("Spring boot version is " + SpringBootVersion.getVersion());
-        SpringApplication app = new SpringApplication(BasicAirFieldDataApplication.class);
+        SpringApplication app = new SpringApplication(SpringBootApp.class);
         app.run(args);
     }
 
