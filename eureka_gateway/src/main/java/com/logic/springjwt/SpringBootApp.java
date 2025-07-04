@@ -7,11 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootVersion;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextListener;
 
@@ -41,17 +38,5 @@ public class SpringBootApp {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
-    }
-
-    @Bean
-    public GlobalFilter disableOptionsFilter() {
-        return (exchange, chain) -> {
-            if (exchange.getRequest().getMethod() == HttpMethod.OPTIONS) {
-                // Reject or respond with 403 or empty
-                exchange.getResponse().setStatusCode(HttpStatus.FORBIDDEN);
-                return exchange.getResponse().setComplete();
-            }
-            return chain.filter(exchange);
-        };
     }
 }
