@@ -11,7 +11,7 @@
     </parent>
     <groupId>lk.gov.mof.itmd</groupId>
     <artifactId>gateway</artifactId>
-    <version>Internal</version>
+    <version>testing</version>
     <name>cloudgateway</name>
     <packaging>jar</packaging>
     <description>ITMD Project - cloudgateway</description>

@@ -12,7 +12,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: "prometheus"
+        include:
+          - prometheus
+          - gateway
+          - routes
   endpoint:
     prometheus:
       enabled: true
@@ -24,6 +27,8 @@ management:
         enabled: true
 
 spring:
+  application:
+    name: GATEWAY
   cloud:
     gateway:
       routes:
