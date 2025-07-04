@@ -37,14 +37,14 @@ spring:
         - id: mof-common-system-management
           uri: lb://MOF_SYSTEMMANAGEMENT
           predicates:
-            - Path=/systems-management/**
+            - Path=/systems-management-all/**
           filters:
             - StripPrefix=1
 
         - id: mof-common-user-management
           uri: lb://MOF_USERMANAGEMENT
           predicates:
-            - Path=/users-management/**
+            - Path=/users-management-all/**
           filters:
             - StripPrefix=1
 
@@ -96,7 +96,7 @@ spring:
           predicates:
             - Path=/cgo/report/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=2 #use prefix two because it devided by the two / in the path
 
 
 
