@@ -35,16 +35,16 @@ spring:
 
         #Reserved for MOF Common Systems
         - id: mof-common-system-management
-          uri: lb://MOF_SYSTEMMANAGEMENT
+          uri: lb://COMMON-SYSTEMMANAGEMENT
           predicates:
-            - Path=/systems-management-all/**
+            - Path=/institutions/**
           filters:
             - StripPrefix=1
 
         - id: mof-common-user-management
-          uri: lb://MOF_USERMANAGEMENT
+          uri: lb://COMMON-USERMANAGEMENT
           predicates:
-            - Path=/users-management-all/**
+            - Path=/users/**
           filters:
             - StripPrefix=1
 
