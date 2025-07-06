@@ -49,6 +49,21 @@ spring:
             - StripPrefix=1
 
 
+        #Reserved for ITMD Salary APP
+        - id: itmd-salaryapp-backend
+          uri: lb://ITMD-SALARYCALCULATOR
+          predicates:
+            - Path=/salarymanagementapp/**
+          filters:
+            - StripPrefix=1
+
+        #Reserved for ITMD Mail Management
+        - id: itmd-mailmanagement-backend
+          uri: lb://ITMD-MAILMANAGEMENT
+          predicates:
+            - Path=/backend/**
+          filters:
+            - StripPrefix=1
 
 
         #Reserved for AEXPERT
