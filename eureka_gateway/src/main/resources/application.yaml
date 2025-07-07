@@ -127,7 +127,7 @@ spring:
             - StripPrefix=1
 
         - id: sincode-cgo-service
-          uri: lb://CGO-SINCODE
+          uri: lb://CGO-STRUCTUREMANAGEMENTSINCODEMANAGEMENT
           predicates:
             - Path=/cgosincode/**
           filters:
@@ -148,14 +148,14 @@ spring:
             - StripPrefix=1
 
         - id: areacalculation-cgo-service
-          uri: lb://CGO-AREACALCULATION
+          uri: lb://CGO-STRUCTUREMANAGEMENTAREACALCULATION
           predicates:
             - Path=/cgoareacalculation/**
           filters:
             - StripPrefix=1
 
         - id: dashboard-cgo-service
-          uri: lb://CGO-ADMINDASHBOARD
+          uri: lb://CGO-STRUCTUREMANAGEMENTDASHBOARD
           predicates:
             - Path=/cgoadmindashboard/**
           filters:
