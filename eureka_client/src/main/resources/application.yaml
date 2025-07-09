@@ -8,7 +8,7 @@ spring:
     name: TEST-SYSETEM
 
 server:
-  port: 1010
+  port: 9095
   context-path: /
 
 management:
