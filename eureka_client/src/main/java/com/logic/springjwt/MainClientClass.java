@@ -12,9 +12,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextListener;
 
 @SpringBootApplication
-public class BasicAirFieldDataApplication {
+public class MainClientClass {
 
-    private static final Logger slsiLogger = LogManager.getLogger(BasicAirFieldDataApplication.class);
+    private static final Logger slsiLogger = LogManager.getLogger(MainClientClass.class);
 
     @Autowired
     private MessageSource messageSource;
@@ -24,7 +24,7 @@ public class BasicAirFieldDataApplication {
         System.out.println("######################################################");
         System.out.println(" ");
         System.out.println("Spring boot version is " + SpringBootVersion.getVersion());
-        SpringApplication app = new SpringApplication(BasicAirFieldDataApplication.class);
+        SpringApplication app = new SpringApplication(MainClientClass.class);
         app.run(args);
     }
 

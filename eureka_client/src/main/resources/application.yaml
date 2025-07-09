@@ -5,10 +5,10 @@ spring:
     debug: true
 
   application:
-    name: CGRSL
+    name: TEST-SYSETEM
 
 server:
-  port: 8088
+  port: 1010
   context-path: /
 
 management:
@@ -21,7 +21,7 @@ management:
       enabled: true
   metrics:
     tags:
-      application: gateway
+      application: TEST-SYSETEM
     export:
       prometheus:
         enabled: true
@@ -33,6 +33,6 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
   instance:
-    instance-id: cgo-structures:CGRSL:${server.port}
+    instance-id: TEST-SYSETEM:${server.port}
     prefer-ip-address: true
 
