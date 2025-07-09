@@ -21,4 +21,9 @@ public class serviceFinder {
     public String testEndpoint() {
         return "Service is working on ---> "+serviceName + " --->  port :"+ serverPort;
     }
+
+    @GetMapping("/getdetails")
+    public String testEndpointFind() {
+        return "Detail one";
+    }
 }
