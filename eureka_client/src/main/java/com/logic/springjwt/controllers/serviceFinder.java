@@ -26,4 +26,9 @@ public class serviceFinder {
     public String testEndpointFind() {
         return "Detail one";
     }
+
+    @GetMapping("/getdetailsTwo")
+    public String testEndpointFindTwo() {
+        return "Detail two";
+    }
 }
