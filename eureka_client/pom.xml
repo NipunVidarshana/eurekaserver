@@ -10,11 +10,11 @@
         <relativePath/>
     </parent>
     <groupId>lk.gov.mof.itmd</groupId>
-    <artifactId>MinistryOfFinance</artifactId>
-    <version>Internal</version>
-    <name>Basic Airfield Data</name>
+    <artifactId>eureka</artifactId>
+    <version>client</version>
+    <name>eureka client</name>
     <packaging>jar</packaging>
-    <description>ITMD Project - Basic Airfield Data</description>
+    <description>ITMD Project - eureka client</description>
     <url/>
     <licenses>
         <license/>
