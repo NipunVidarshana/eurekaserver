@@ -5,7 +5,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://192.168.231.62:8761/eureka/
-    register-with-eureka: true
+    register-with-eureka: false
     fetch-registry: true
   instance:
     instance-id: ITMD-MAILMANAGEMENT:${server.port}
