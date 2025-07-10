@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: development
   main:
     web-environment: true
     banner-mode: console
@@ -6,9 +8,6 @@ spring:
 
   application:
     name: TEST-SYSETEM
-
-CICDPIPELINE:
-  enabled: false #this will be auto fired when source code push to the main branch to the git. put false to stop auto deploy.
 
 server:
   port: 9095
@@ -28,14 +27,3 @@ management:
     export:
       prometheus:
         enabled: true
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://192.168.231.62:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    instance-id: TEST-SYSETEM:${server.port}
-    prefer-ip-address: true
-

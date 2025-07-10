@@ -1,0 +1,12 @@
+CICDPIPELINE:
+  enabled: false #this will be auto fired when source code push to the main branch to the git. put false to stop auto deploy.
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.250.xx:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ITMD-MAILMANAGEMENT:${server.port}
+    prefer-ip-address: true
