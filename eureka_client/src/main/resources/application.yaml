@@ -8,7 +8,7 @@ spring:
     name: TEST-SYSETEM
 
 CICDPIPELINE:
-  enabled: false #this will be auto fired when source code push to the main branch to the git. put false to stop auto deploy.
+  enabled: true #this will be auto fired when source code push to the main branch to the git. put false to stop auto deploy.
 
 server:
   port: 9095
