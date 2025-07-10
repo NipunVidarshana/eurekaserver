@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: testing
+    active: development
   main:
     web-environment: true
     banner-mode: console
