@@ -8,5 +8,5 @@ eureka:
     register-with-eureka: false
     fetch-registry: true
   instance:
-    instance-id: ITMD-MAILMANAGEMENT:${server.port}
+    instance-id: TEST-SYSETEM:${server.port}
     prefer-ip-address: true
