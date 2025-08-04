@@ -65,6 +65,15 @@ spring:
           filters:
             - StripPrefix=1
 
+        #Reserved for ITMD Document Management
+        - id: itmd-documentmanagement-backend
+          uri: lb://ITMD-DOCUMENTMANAGEMENT
+          predicates:
+            - Path=/document/**
+          filters:
+            - StripPrefix=1
+
+
 
         #Reserved for AEXPERT
         - id: aexpert-backend
