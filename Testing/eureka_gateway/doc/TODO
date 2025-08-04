@@ -1,0 +1,7 @@
+1) check the app.jsp and AppServlet_1.java and move them initially
+2) check mof and move (importer registration)
+3) remove link to view2.jsp from admin (only for who submitted the application and slsi role)
+4) role should be multi select enabled select component
+5) work flow should be enabled only for slsi
+6) don't check the views jsp
+7) to print better give a pdf

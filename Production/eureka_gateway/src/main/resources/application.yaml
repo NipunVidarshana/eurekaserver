@@ -1,0 +1,162 @@
+server:
+  port: 8090 # The port your API Gateway will run on. Choose a free port.
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.250.104:8761/eureka/ # Your Eureka server IP and port
+    fetch-registry: true
+    register-with-eureka: true # Register the gateway with Eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
+          - gateway
+          - routes
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    tags:
+      application: gateway
+    export:
+      prometheus:
+        enabled: true
+
+spring:
+  application:
+    name: GATEWAY
+  cloud:
+    gateway:
+      routes:
+
+        #Reserved for MOF Common Systems
+        - id: mof-common-system-management
+          uri: lb://COMMON-SYSTEMMANAGEMENT
+          predicates:
+            - Path=/institutions/**
+          filters:
+            - StripPrefix=1
+
+        - id: mof-common-user-management
+          uri: lb://COMMON-USERMANAGEMENT
+          predicates:
+            - Path=/users/**
+          filters:
+            - StripPrefix=1
+
+
+        #Reserved for ITMD Salary APP
+        - id: itmd-salaryapp-backend
+          uri: lb://ITMD-SALARYCALCULATOR
+          predicates:
+            - Path=/salarymanagementapp/**
+          filters:
+            - StripPrefix=1
+
+        #Reserved for ITMD Mail Management
+        - id: itmd-mailmanagement-backend
+          uri: lb://ITMD-MAILMANAGEMENT
+          predicates:
+            - Path=/backend/**
+          filters:
+            - StripPrefix=1
+
+
+        #Reserved for AEXPERT
+        - id: aexpert-backend
+          uri: lb://MAD-AUDITMANAGEMENT-AEXPERT
+          predicates:
+            - Path=/audit-backend/**
+          filters:
+            - StripPrefix=1
+
+
+
+
+        #Reserved for CGO System
+        - id: nfams-user-module-exernal
+          uri: lb://CGO-EXTERNALUSERMANAGEMENT
+          predicates:
+            - Path=/external/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-user-module-internal
+          uri: lb://CGO-INTERNALUSERMANAGEMENT
+          predicates:
+            - Path=/internal/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-systems-management
+          uri: lb://CGO-SYSTEMMANAGEMENT
+          predicates:
+            - Path=/management/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-vehicle-management
+          uri: lb://CGO-VEHICLEMANAGEMENT
+          predicates:
+            - Path=/vehicle-asset/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-vehicle-report-module
+          uri: lb://CGO-VEHICLEREPORTGENERATION
+          predicates:
+            - Path=/cgo/report/**
+          filters:
+            - StripPrefix=2 #use prefix two because it devided by the two / in the path
+
+
+
+
+
+
+        #Reserved for cgo other modules(Development)
+        - id: basicairfeild-cgo-service
+          uri: lb://CGO-STRUCTUREMANAGEMENTBASICAIRFIELD
+          predicates:
+            - Path=/cgobasicairfield/**
+          filters:
+            - StripPrefix=1
+
+        - id: sincode-cgo-service
+          uri: lb://CGO-STRUCTUREMANAGEMENTSINCODEMANAGEMENT
+          predicates:
+            - Path=/cgosincode/**
+          filters:
+            - StripPrefix=1
+
+        - id: constructioncomplete-cgo-service
+          uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONCOMPLETE
+          predicates:
+            - Path=/cgoconstructioncomplete/**
+          filters:
+            - StripPrefix=1
+
+        - id: constructionnotcomplete-cgo-service
+          uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONNOTCOMPLETE
+          predicates:
+            - Path=/cgoconstructionnotcomplete/**
+          filters:
+            - StripPrefix=1
+
+        - id: areacalculation-cgo-service
+          uri: lb://CGO-STRUCTUREMANAGEMENTAREACALCULATION
+          predicates:
+            - Path=/cgoareacalculation/**
+          filters:
+            - StripPrefix=1
+
+        - id: dashboard-cgo-service
+          uri: lb://CGO-STRUCTUREMANAGEMENTDASHBOARD
+          predicates:
+            - Path=/cgoadmindashboard/**
+          filters:
+            - StripPrefix=1 

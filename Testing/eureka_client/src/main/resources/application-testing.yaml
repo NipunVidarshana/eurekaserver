@@ -1,0 +1,12 @@
+CICDPIPELINE:
+  enabled: true #this will be auto fired when source code push to the main branch to the git. put false to stop auto deploy.
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.231.62:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: TEST-SYSETEM:${server.port}
+    prefer-ip-address: true
