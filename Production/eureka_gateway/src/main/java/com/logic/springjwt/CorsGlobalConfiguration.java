@@ -15,7 +15,11 @@ public class CorsGlobalConfiguration {
         config.setAllowCredentials(true);
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
-        config.addAllowedOriginPattern("http://192.168.250.103"); // or use wildcard pattern
+
+        config.addAllowedOriginPattern("http://itmd.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://systems.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://localhost"); // Add multiple allowed origin patterns
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return new CorsWebFilter(source);

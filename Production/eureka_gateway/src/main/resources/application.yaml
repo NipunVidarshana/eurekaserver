@@ -32,132 +32,123 @@ spring:
   cloud:
     gateway:
       routes:
-
-        #Reserved for ITMD Web Site
-        - id: mof-department-web-itmd
+        - id: mof-department-web-itmd #Reserved for ITMD Web Site
           uri: lb://DepWeb
           predicates:
             - Path=/website-itmd/**
           filters:
             - StripPrefix=1
 
-        #Reserved for MOF Common Systems
-        - id: mof-common-system-management
+        - id: mof-common-system-management #Reserved for MOF Common Systems
           uri: lb://COMMON-SYSTEMMANAGEMENT
           predicates:
             - Path=/institutions/**
           filters:
             - StripPrefix=1
 
-        - id: mof-common-user-management
+        - id: mof-common-user-management #Reserved for MOF Common Systems
           uri: lb://COMMON-USERMANAGEMENT
           predicates:
             - Path=/users/**
           filters:
             - StripPrefix=1
 
-
-        #Reserved for ITMD Salary APP
-        - id: itmd-salaryapp-backend
+        - id: itmd-salaryapp-backend #Reserved for ITMD Salary APP
           uri: lb://ITMD-SALARYCALCULATOR
           predicates:
             - Path=/salarymanagementapp/**
           filters:
             - StripPrefix=1
 
-        #Reserved for ITMD Mail Management
-        - id: itmd-mailmanagement-backend
+        - id: itmd-mailmanagement-backend #Reserved for ITMD Mail Management
           uri: lb://ITMD-MAILMANAGEMENT
           predicates:
             - Path=/backend/**
           filters:
             - StripPrefix=1
 
-        #Reserved for ITMD Document Management
-        - id: itmd-documentmanagement-backend
-          uri: lb://ITMD-DOCUMENTMANAGEMENT
-          predicates:
-            - Path=/document/**
-          filters:
-            - StripPrefix=1
+#        - id: aexpert-backend #Reserved for AEXPERT
+#          uri: lb://MAD-AUDITMANAGEMENT-AEXPERT
+#          predicates:
+#            - Path=/audit-backend/**
+#          filters:
+#            - StripPrefix=1
 
+#        - id: itmd-documentmanagement-backend #Reserved for ITMD Document Management
+#          uri: lb://ITMD-DOCUMENTMANAGEMENT
+#          predicates:
+#            - Path=/document/**
+#          filters:
+#            - StripPrefix=1
 
-        #Reserved for AEXPERT
-        - id: aexpert-backend
-          uri: lb://MAD-AUDITMANAGEMENT-AEXPERT
-          predicates:
-            - Path=/audit-backend/**
-          filters:
-            - StripPrefix=1
-            -
-
-        #Reserved for CGO System
-        - id: nfams-user-module-exernal
-          uri: lb://CGO-EXTERNALUSERMANAGEMENT
-          predicates:
-            - Path=/external/**
-          filters:
-            - StripPrefix=1
-
-        - id: nfams-user-module-internal
-          uri: lb://CGO-INTERNALUSERMANAGEMENT
-          predicates:
-            - Path=/internal/**
-          filters:
-            - StripPrefix=1
-
-        - id: nfams-systems-management
-          uri: lb://CGO-SYSTEMMANAGEMENT
-          predicates:
-            - Path=/management/**
-          filters:
-            - StripPrefix=1
-
-        - id: nfams-vehicle-management
-          uri: lb://CGO-VEHICLEMANAGEMENT
-          predicates:
-            - Path=/vehicle-asset/**
-          filters:
-            - StripPrefix=1
-
-        - id: nfams-vehicle-report-module
-          uri: lb://CGO-VEHICLEREPORTGENERATION
-          predicates:
-            - Path=/cgo/report/**
-          filters:
-            - StripPrefix=2
-
-        - id: basicairfeild-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTBASICAIRFIELD
-          predicates:
-            - Path=/cgobasicairfield/**
-          filters:
-            - StripPrefix=1
-
-        - id: sincode-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTSINCODEMANAGEMENT
-          predicates:
-            - Path=/cgosincode/**
-          filters:
-            - StripPrefix=1
-
-        - id: constructioncomplete-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONCOMPLETE
-          predicates:
-            - Path=/cgoconstructioncomplete/**
-          filters:
-            - StripPrefix=1
-
-        - id: constructionnotcomplete-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONNOTCOMPLETE
-          predicates:
-            - Path=/cgoconstructionnotcomplete/**
-          filters:
-            - StripPrefix=1
-
-        - id: dashboard-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTDASHBOARD
-          predicates:
-            - Path=/cgoadmindashboard/**
-          filters:
-            - StripPrefix=1 
+        #####################################################################################
+#        - id: nfams-user-module-exernal #Reserved for CGO System
+#          uri: lb://CGO-EXTERNALUSERMANAGEMENT
+#          predicates:
+#            - Path=/external/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: nfams-user-module-internal #Reserved for CGO System
+#          uri: lb://CGO-INTERNALUSERMANAGEMENT
+#          predicates:
+#            - Path=/internal/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: nfams-systems-management #Reserved for CGO System
+#          uri: lb://CGO-SYSTEMMANAGEMENT
+#          predicates:
+#            - Path=/management/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: nfams-vehicle-management #Reserved for CGO System
+#          uri: lb://CGO-VEHICLEMANAGEMENT
+#          predicates:
+#            - Path=/vehicle-asset/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: nfams-vehicle-report-module #Reserved for CGO System
+#          uri: lb://CGO-VEHICLEREPORTGENERATION
+#          predicates:
+#            - Path=/cgo/report/**
+#          filters:
+#            - StripPrefix=2
+#
+#        - id: basicairfeild-cgo-service #Reserved for CGO System
+#          uri: lb://CGO-STRUCTUREMANAGEMENTBASICAIRFIELD
+#          predicates:
+#            - Path=/cgobasicairfield/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: sincode-cgo-service #Reserved for CGO System
+#          uri: lb://CGO-STRUCTUREMANAGEMENTSINCODEMANAGEMENT
+#          predicates:
+#            - Path=/cgosincode/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: constructioncomplete-cgo-service #Reserved for CGO System
+#          uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONCOMPLETE
+#          predicates:
+#            - Path=/cgoconstructioncomplete/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: constructionnotcomplete-cgo-service #Reserved for CGO System
+#          uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONNOTCOMPLETE
+#          predicates:
+#            - Path=/cgoconstructionnotcomplete/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - id: dashboard-cgo-service #Reserved for CGO System
+#          uri: lb://CGO-STRUCTUREMANAGEMENTDASHBOARD
+#          predicates:
+#            - Path=/cgoadmindashboard/**
+#          filters:
+#            - StripPrefix=1
+        #####################################################################################
