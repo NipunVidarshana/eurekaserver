@@ -33,6 +33,14 @@ spring:
     gateway:
       routes:
 
+        #Reserved for ITMD Web Site
+        - id: mof-department-web-itmd
+          uri: lb://DepWeb
+          predicates:
+            - Path=/website-itmd/**
+          filters:
+            - StripPrefix=1
+
         #Reserved for MOF Common Systems
         - id: mof-common-system-management
           uri: lb://COMMON-SYSTEMMANAGEMENT
@@ -117,14 +125,8 @@ spring:
           predicates:
             - Path=/cgo/report/**
           filters:
-            - StripPrefix=2 #use prefix two because it devided by the two / in the path
+            - StripPrefix=2
 
-
-
-
-
-
-        #Reserved for cgo other modules(Development)
         - id: basicairfeild-cgo-service
           uri: lb://CGO-STRUCTUREMANAGEMENTBASICAIRFIELD
           predicates:
@@ -150,13 +152,6 @@ spring:
           uri: lb://CGO-STRUCTUREMANAGEMENTCONSTRUCTIONNOTCOMPLETE
           predicates:
             - Path=/cgoconstructionnotcomplete/**
-          filters:
-            - StripPrefix=1
-
-        - id: areacalculation-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTAREACALCULATION
-          predicates:
-            - Path=/cgoareacalculation/**
           filters:
             - StripPrefix=1
 
