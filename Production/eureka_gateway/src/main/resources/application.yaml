@@ -33,7 +33,7 @@ spring:
     gateway:
       routes:
         - id: mof-department-web-itmd #Reserved for ITMD Web Site
-          uri: lb://DepWeb
+          uri: lb://ITMD-WEB
           predicates:
             - Path=/website-itmd/**
           filters:
