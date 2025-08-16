@@ -20,6 +20,7 @@ public class CorsGlobalConfiguration {
         config.addAllowedOriginPattern("https://systems.treasury.gov.lk"); // Add multiple allowed origin patterns
         config.addAllowedOriginPattern("http://itmd.treasury.gov.lk"); // Add multiple allowed origin patterns
         config.addAllowedOriginPattern("http://systems.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://192.168.250.96"); // Add multiple allowed origin patterns
         config.addAllowedOriginPattern("http://localhost"); // Add multiple allowed origin patterns
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
