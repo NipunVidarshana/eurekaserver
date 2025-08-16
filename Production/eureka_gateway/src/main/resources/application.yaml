@@ -82,40 +82,40 @@ spring:
 #            - StripPrefix=1
 
         #####################################################################################
-#        - id: nfams-user-module-exernal #Reserved for CGO System
-#          uri: lb://CGO-EXTERNALUSERMANAGEMENT
-#          predicates:
-#            - Path=/external/**
-#          filters:
-#            - StripPrefix=1
-#
-#        - id: nfams-user-module-internal #Reserved for CGO System
-#          uri: lb://CGO-INTERNALUSERMANAGEMENT
-#          predicates:
-#            - Path=/internal/**
-#          filters:
-#            - StripPrefix=1
-#
-#        - id: nfams-systems-management #Reserved for CGO System
-#          uri: lb://CGO-SYSTEMMANAGEMENT
-#          predicates:
-#            - Path=/management/**
-#          filters:
-#            - StripPrefix=1
-#
-#        - id: nfams-vehicle-management #Reserved for CGO System
-#          uri: lb://CGO-VEHICLEMANAGEMENT
-#          predicates:
-#            - Path=/vehicle-asset/**
-#          filters:
-#            - StripPrefix=1
-#
-#        - id: nfams-vehicle-report-module #Reserved for CGO System
-#          uri: lb://CGO-VEHICLEREPORTGENERATION
-#          predicates:
-#            - Path=/cgo/report/**
-#          filters:
-#            - StripPrefix=2
+        - id: nfams-user-module-exernal #Reserved for CGO System
+          uri: lb://CGO-EXTERNALUSERMANAGEMENT
+          predicates:
+            - Path=/external/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-user-module-internal #Reserved for CGO System
+          uri: lb://CGO-INTERNALUSERMANAGEMENT
+          predicates:
+            - Path=/internal/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-systems-management #Reserved for CGO System
+          uri: lb://CGO-SYSTEMMANAGEMENT
+          predicates:
+            - Path=/management/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-vehicle-management #Reserved for CGO System
+          uri: lb://CGO-VEHICLEMANAGEMENT
+          predicates:
+            - Path=/vehicle-asset/**
+          filters:
+            - StripPrefix=1
+
+        - id: nfams-vehicle-report-module #Reserved for CGO System
+          uri: lb://CGO-VEHICLEREPORTGENERATION
+          predicates:
+            - Path=/cgo/report/**
+          filters:
+            - StripPrefix=2
 #
 #        - id: basicairfeild-cgo-service #Reserved for CGO System
 #          uri: lb://CGO-STRUCTUREMANAGEMENTBASICAIRFIELD
