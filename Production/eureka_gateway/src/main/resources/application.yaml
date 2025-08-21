@@ -67,12 +67,12 @@ spring:
           filters:
             - StripPrefix=1
 
-#        - id: aexpert-backend #Reserved for AEXPERT
-#          uri: lb://MAD-AUDITMANAGEMENT-AEXPERT
-#          predicates:
-#            - Path=/audit-backend/**
-#          filters:
-#            - StripPrefix=1
+        - id: aexpert-backend #Reserved for AEXPERT
+          uri: lb://MAD-AUDITMANAGEMENT-AEXPERT
+          predicates:
+            - Path=/audit-backend/**
+          filters:
+            - StripPrefix=1
 
 #        - id: itmd-documentmanagement-backend #Reserved for ITMD Document Management
 #          uri: lb://ITMD-DOCUMENTMANAGEMENT
