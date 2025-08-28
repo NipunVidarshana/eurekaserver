@@ -130,10 +130,10 @@ spring:
           filters:
             - StripPrefix=2
 
-        - id: basicairfeild-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTBASICAIRFIELD
+        - id: structure-basic-cgo-service #Reserved for CGO System
+          uri: lb://CG0-STRUCTUREMANAGEMENTBASICDATA
           predicates:
-            - Path=/cgobasicairfield/**
+            - Path=/cgostructurebasic/**
           filters:
             - StripPrefix=1
 
