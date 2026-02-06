@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: testing
+  main:
+    web-environment: true
+    banner-mode: console
+    debug: true
+
+  application:
+    name: TEST-SYSETEM
+
+server:
+  port: 9095
+  context-path: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus"
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    tags:
+      application: TEST-SYSETEM
+    export:
+      prometheus:
+        enabled: true
