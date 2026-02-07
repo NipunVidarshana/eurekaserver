@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>lk.gov.mof.itmd</groupId>
 	<artifactId>eurekaserver</artifactId>
-	<version>testing</version>
+	<version>development</version>
 	<name>eurekaserver</name>
 	<description>Spring cloud eureka server</description>
 	<url/>

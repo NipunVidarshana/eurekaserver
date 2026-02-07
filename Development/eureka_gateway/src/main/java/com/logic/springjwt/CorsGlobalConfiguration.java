@@ -17,6 +17,7 @@ public class CorsGlobalConfiguration {
         config.addAllowedMethod("*");
         config.addAllowedOriginPattern("http://192.168.231.4"); // or use wildcard pattern
         config.addAllowedOriginPattern("http://192.168.231.5"); // or use wildcard pattern
+        config.addAllowedOriginPattern("http://192.168.231.7"); // or use wildcard pattern
         config.addAllowedOriginPattern("http://localhost"); // or use wildcard pattern
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
