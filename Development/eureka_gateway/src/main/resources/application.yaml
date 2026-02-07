@@ -1,5 +1,9 @@
 server:
   port: 8090 # The port your API Gateway will run on. Choose a free port.
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
 
 eureka:
   client:
