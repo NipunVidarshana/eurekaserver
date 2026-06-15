@@ -45,6 +45,7 @@ spring:
           filters:
             - StripPrefix=1
 
+
         #Reserved for MOF Common Systems
         - id: mof-common-system-management
           uri: lb://COMMON-SYSTEMMANAGEMENT
@@ -69,6 +70,7 @@ spring:
           filters:
             - StripPrefix=1
 
+
         #Reserved for ITMD Mail Management
         - id: itmd-mailmanagement-backend
           uri: lb://ITMD-MAILMANAGEMENT
@@ -76,15 +78,6 @@ spring:
             - Path=/backend/**
           filters:
             - StripPrefix=1
-
-        #Reserved for ITMD Document Management
-        - id: itmd-documentmanagement-backend
-          uri: lb://ITMD-DOCUMENTMANAGEMENT
-          predicates:
-            - Path=/document/**
-          filters:
-            - StripPrefix=1
-
 
 
         #Reserved for AEXPERT
@@ -94,8 +87,6 @@ spring:
             - Path=/audit-backend/**
           filters:
             - StripPrefix=1
-
-
 
 
         #Reserved for CGO System
@@ -120,6 +111,7 @@ spring:
           filters:
             - StripPrefix=1
 
+          #----------- Vehicle Management
         - id: nfams-vehicle-management
           uri: lb://CGO-VEHICLEMANAGEMENT
           predicates:
@@ -134,7 +126,16 @@ spring:
           filters:
             - StripPrefix=2
 
-        - id: structure-basic-cgo-service #Reserved for CGO System
+          #----------- Building Management
+        - id: nfams-building-management
+          uri: lb://CGO-BUILDINGMANAGEMENT
+          predicates:
+            - Path=/builing-asset/**
+          filters:
+            - StripPrefix=1
+
+          #----------- Structure Management
+        - id: structure-basic-cgo-service
           uri: lb://CG0-STRUCTUREMANAGEMENTBASICDATA
           predicates:
             - Path=/cgostructurebasic/**
@@ -161,10 +162,3 @@ spring:
             - Path=/cgoconstructionnotcomplete/**
           filters:
             - StripPrefix=1
-
-        - id: dashboard-cgo-service
-          uri: lb://CGO-STRUCTUREMANAGEMENTDASHBOARD
-          predicates:
-            - Path=/cgoadmindashboard/**
-          filters:
-            - StripPrefix=1 
