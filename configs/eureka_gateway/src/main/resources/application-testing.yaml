@@ -1,0 +1,12 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.231.62:8761/eureka/
+
+logging:
+  level:
+    root: INFO
+    com.logic.springjwt: INFO
+    org.springframework.cloud.gateway: INFO

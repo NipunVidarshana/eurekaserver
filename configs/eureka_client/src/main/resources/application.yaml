@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: development
+  main:
+    web-application-type: servlet
+    banner-mode: console
+    log-startup-info: true
+  application:
+    name: TEST-SYSETEM
+
+server:
+  port: 9095
+  servlet:
+    context-path: /
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    eureka-service-url-poll-interval-seconds: 15
+    registry-fetch-interval-seconds: 10
+    instance-info-replication-interval-seconds: 15
+    initial-instance-info-replication-interval-seconds: 5
+    eureka-server-connect-timeout-seconds: 5
+    eureka-server-read-timeout-seconds: 8
+    eureka-connection-idle-timeout-seconds: 30
+    filter-only-up-instances: true
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,prometheus,metrics"
+  endpoint:
+    health:
+      show-details: when_authorized
+      probes:
+        enabled: true
+    prometheus:
+      enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}

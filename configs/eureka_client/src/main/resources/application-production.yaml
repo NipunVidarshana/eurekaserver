@@ -1,0 +1,52 @@
+CICDPIPELINE:
+  enabled: false # this will be auto fired when source code push to the main branch to the git. put false to stop auto deploy.
+
+server:
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 20
+    max-connections: 10000
+    accept-count: 100
+    connection-timeout: 20000
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 1024
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.250.xx:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true
+    eureka-service-url-poll-interval-seconds: 15
+    registry-fetch-interval-seconds: 5
+    instance-info-replication-interval-seconds: 15
+    initial-instance-info-replication-interval-seconds: 5
+    eureka-server-connect-timeout-seconds: 5
+    eureka-server-read-timeout-seconds: 8
+    eureka-connection-idle-timeout-seconds: 30
+    recovery-check-interval-ms: 10000
+  instance:
+    instance-id: TEST-SYSETEM:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+
+management:
+  endpoint:
+    health:
+      show-details: never
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,prometheus,metrics"
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: WARN
+    com.netflix.discovery: INFO

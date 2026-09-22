@@ -1,0 +1,39 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.250.104:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 5
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 10s
+        pool:
+          type: ELASTIC
+          max-connections: 1000
+          max-idle-time: 30s
+          max-life-time: 60s
+          pending-acquire-timeout: 45s
+          eviction-interval: 60s
+
+server:
+  shutdown: graceful
+  error:
+    include-stacktrace: never
+    include-message: never
+
+logging:
+  level:
+    root: WARN
+    com.logic.springjwt: INFO
+    org.springframework.cloud.gateway: INFO
+    org.springframework.web.reactive: WARN
+    reactor.netty: WARN
