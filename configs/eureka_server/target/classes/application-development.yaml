@@ -1,6 +1,0 @@
-eureka:
-  server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 5000
-    response-cache-update-interval-ms: 1000
-
