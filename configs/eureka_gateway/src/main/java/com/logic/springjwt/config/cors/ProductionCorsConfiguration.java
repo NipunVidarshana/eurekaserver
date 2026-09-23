@@ -29,7 +29,6 @@ public class ProductionCorsConfiguration {
         config.addAllowedOriginPattern("http://itmd.treasury.gov.lk");
         config.addAllowedOriginPattern("http://systems.treasury.gov.lk");
         config.addAllowedOriginPattern("http://192.168.250.96");
-        config.addAllowedOriginPattern("http://localhost");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

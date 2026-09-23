@@ -171,7 +171,7 @@ server:
   error:
     whitelabel:
       enabled: false
-    include-message: always
+    include-message: never
 
 eureka:
   instance:
@@ -191,13 +191,11 @@ management:
         include:
           - health
           - prometheus
-          - metrics
-          - gateway
   endpoint:
     gateway:
-      enabled: true
+      enabled: false
     health:
-      show-details: always
+      show-details: never
       probes:
         enabled: true
     prometheus:

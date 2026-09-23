@@ -26,7 +26,7 @@ public class LoggingFilter implements GlobalFilter, Ordered {
         String method = exchange.getRequest().getMethod().name();
 
         if (log.isDebugEnabled()) {
-            log.debug("Incoming Request: [{}] {}", method, exchange.getRequest().getURI());
+            log.debug("Incoming Request: [{}] {}", method, path);
         }
 
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
