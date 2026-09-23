@@ -43,6 +43,12 @@
             <artifactId>spring-cloud-starter-gateway-server-webflux</artifactId>
         </dependency>
 
+        <!-- Spring Cloud LoadBalancer (Required for lb:// routing with Eureka) -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
         <!-- Spring WebFlux -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -73,6 +79,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

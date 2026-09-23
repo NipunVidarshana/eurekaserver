@@ -8,5 +8,6 @@ eureka:
 logging:
   level:
     root: INFO
-    com.logic.springjwt: INFO
-    org.springframework.cloud.gateway: INFO
+    com.logic.springjwt: DEBUG
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO

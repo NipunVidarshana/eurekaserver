@@ -9,13 +9,14 @@ import reactor.core.publisher.Mono;
 import java.time.Instant;
 import java.util.Map;
 
+import org.springframework.http.MediaType;
+
 @RestController
-@RequestMapping("/gateway")
 public class GatewayHealthController {
 
     private final Instant startTime = Instant.now();
 
-    @GetMapping("/health")
+    @GetMapping({"/health", "/gateway/health"})
     public Mono<ResponseEntity<Map<String, Object>>> health() {
         return Mono.just(ResponseEntity.ok(Map.of(
                 "status", "UP",
@@ -25,11 +26,8 @@ public class GatewayHealthController {
         )));
     }
 
-    @GetMapping("/info")
-    public Mono<ResponseEntity<Map<String, String>>> info() {
-        return Mono.just(ResponseEntity.ok(Map.of(
-                "app", "ITMD Cloud Gateway",
-                "status", "active"
-        )));
+    @GetMapping(value = {"/info", "/gateway/info", "/actuator/info"}, produces = MediaType.TEXT_PLAIN_VALUE)
+    public Mono<String> info() {
+        return Mono.just("Test endpoint is working!");
     }
 }
