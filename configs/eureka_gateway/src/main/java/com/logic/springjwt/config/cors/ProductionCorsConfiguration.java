@@ -18,21 +18,18 @@ public class ProductionCorsConfiguration {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setMaxAge(3600L); // 1 hour preflight cache for high performance
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
 
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"));
-        config.setExposedHeaders(Arrays.asList("Authorization", "Link", "X-Total-Count", "Content-Disposition"));
-
-        config.addAllowedOriginPattern("https://itmd.treasury.gov.lk");
-        config.addAllowedOriginPattern("https://systems.treasury.gov.lk");
-        config.addAllowedOriginPattern("http://itmd.treasury.gov.lk");
-        config.addAllowedOriginPattern("http://systems.treasury.gov.lk");
-        config.addAllowedOriginPattern("http://192.168.250.96");
+        config.addAllowedOriginPattern("https://itmd.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("https://systems.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://itmd.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://systems.treasury.gov.lk"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://192.168.250.96"); // Add multiple allowed origin patterns
+        config.addAllowedOriginPattern("http://localhost"); // Add multiple allowed origin patterns
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-
         return new CorsWebFilter(source);
     }
 }
