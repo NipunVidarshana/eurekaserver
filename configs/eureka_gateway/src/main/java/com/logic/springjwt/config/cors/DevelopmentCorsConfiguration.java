@@ -18,12 +18,22 @@ public class DevelopmentCorsConfiguration {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        config.addAllowedOriginPattern("http://192.168.231.4"); // or use wildcard pattern
-        config.addAllowedOriginPattern("http://192.168.231.5"); // or use wildcard pattern
-        config.addAllowedOriginPattern("http://192.168.231.7"); // or use wildcard pattern
-        config.addAllowedOriginPattern("http://localhost"); // or use wildcard pattern
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH", "HEAD"));
+        config.setExposedHeaders(List.of("*"));
+        config.setMaxAge(3600L);
+
+        config.addAllowedOriginPattern("http://192.168.231.4*");
+        config.addAllowedOriginPattern("https://192.168.231.4*");
+        config.addAllowedOriginPattern("http://192.168.231.5*");
+        config.addAllowedOriginPattern("https://192.168.231.5*");
+        config.addAllowedOriginPattern("http://192.168.231.7*");
+        config.addAllowedOriginPattern("https://192.168.231.7*");
+        config.addAllowedOriginPattern("http://localhost*");
+        config.addAllowedOriginPattern("https://localhost*");
+        config.addAllowedOriginPattern("http://127.0.0.1*");
+        config.addAllowedOriginPattern("https://127.0.0.1*");
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
 
